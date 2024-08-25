@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function Mainbody() {
+export default function Mainbody()
+{
+
+const [username,setUsername]=useState('');
+
+
+const  onHandleClick=(event: { target: { value: React.SetStateAction<string>; }; })=>{
+  setUsername(event.target.value);
+}
   return (
     <div className="flex flex-col items-center h-screen p-4 lg:mt-10">
       <div className="w-full lg:w-2/3 ">
@@ -14,7 +22,7 @@ export default function Mainbody() {
             type="text"
             placeholder="Enter username"
           />
-          <button className="w-full bg-green-200 hover:bg-green-400 text-lg px-4 py-2 rounded-md lg:w-auto">
+          <button className="w-full bg-green-200 hover:bg-green-400 text-lg px-4 py-2 rounded-md lg:w-auto" onClick={onHandleClick}>
             Search
           </button>
         </div>
